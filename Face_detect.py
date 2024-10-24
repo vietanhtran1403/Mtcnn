@@ -107,8 +107,8 @@ if __name__ == "__main__":
 
     # Huấn luyện mô hình với dataset
     print("Start training the model with the dataset...")
-    train_path = 'D:/Face_Detect_Mtcnn/Mtcnn/datasets/datasets 1/train'  # Thay bằng đường dẫn thực tế tới dữ liệu huấn luyện của bạn
-    test_path = 'D:/Face_Detect_Mtcnn/Mtcnn/datasets/datasets 1/val'  # Thay bằng đường dẫn thực tế tới dữ liệu kiểm tra
+    train_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/train'  # Thay bằng đường dẫn thực tế tới dữ liệu huấn luyện của bạn
+    test_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/val'  # Thay bằng đường dẫn thực tế tới dữ liệu kiểm tra
 
     num_classes = 2  # Số lớp: face, no_face
     model = create_model(num_classes)
