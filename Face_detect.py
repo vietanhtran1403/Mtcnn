@@ -8,6 +8,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 
+# Import các hàm từ file metrics.py
+from metrics import evaluate_metrics
+
 # Bước 1: Phát hiện khuôn mặt từ webcam bằng MTCNN
 def detect_faces_from_webcam():
     detector = MTCNN()  # Khởi tạo MTCNN để phát hiện khuôn mặt
@@ -107,8 +110,8 @@ if __name__ == "__main__":
 
     # Huấn luyện mô hình với dataset
     print("Start training the model with the dataset...")
-    train_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/train'  # Thay bằng đường dẫn thực tế tới dữ liệu huấn luyện của bạn
-    test_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/val'  # Thay bằng đường dẫn thực tế tới dữ liệu kiểm tra
+    train_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/train'
+    test_path = 'D:/Face_Dectect_Mtcnn2/Mtcnn/datasets/datasets 1/val'
 
     num_classes = 2  # Số lớp: face, no_face
     model = create_model(num_classes)
@@ -123,3 +126,7 @@ if __name__ == "__main__":
     # Đánh giá mô hình
     print("Evaluating the model...")
     evaluate_model(test_path)
+
+    # Đo Precision, Recall và Inference Time từ file metrics.py
+    print("Calculating Precision, Recall, and Inference Time...")
+    evaluate_metrics(model, validation_generator, device=None)
